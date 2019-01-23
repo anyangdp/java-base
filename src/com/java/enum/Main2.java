@@ -1,0 +1,58 @@
+import java.util.ArrayList;
+
+/**
+ * @Author anyang
+ * @CreateTime 2018/6/12
+ * @Des
+ */
+public class Main2 {
+    public static void main(String[] args) {
+//        字符          数值
+//        I             1
+//        V             5
+//        X             10
+//        L             50
+//        C             100
+//        D             500
+//        M             1000
+        String s = "I";
+        ArrayList<Integer> array = new ArrayList<>();
+        int result = 0;
+        for (int i = 0; i < s.length(); i++) {
+            System.out.println(s.charAt(i));
+            char temp = s.charAt(i);
+            switch (temp) {
+                case 'M': array.add(1000); break;
+                case 'D': array.add(500); break;
+                case 'C': array.add(100); break;
+                case 'L': array.add(50); break;
+                case 'X': array.add(10); break;
+                case 'V': array.add(5); break;
+                case 'I': array.add(1); break;
+            }
+        }
+        System.out.println(array);
+        for (int i = 0; i< array.size(); i++) {
+            if (array.size() == 1) {
+                result += array.get(i);
+                break;
+            }
+            for (int j = i+1; j < array.size(); j++) {
+                if (array.get(i) >= array.get(j)) {
+                    result += array.get(i);
+                    break;
+                } else {
+                    result += array.get(j) - array.get(i);
+                    i++;
+                    break;
+                }
+            }
+            if (i == array.size() - 1) {
+                if (array.get(i) <= array.get(i-1)) {
+                    result += array.get(i);
+                }
+            }
+        }
+        System.out.println(result);
+    }
+}
