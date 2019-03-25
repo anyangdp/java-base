@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.design.review.策略模式.CashContext</OriginalElement>
+  <nodes>
+    <node x="216.0" y="101.0">com.design.review.策略模式.CashRebate</node>
+    <node x="324.0" y="0.0">com.design.review.策略模式.CashSuper</node>
+    <node x="265.20833333333337" y="202.0">com.design.review.策略模式.CashContext</node>
+    <node x="432.0" y="101.0">com.design.review.策略模式.CashReturn</node>
+    <node x="0.0" y="101.0">com.design.review.策略模式.CashNormal</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.design.review.策略模式.CashRebate" target="com.design.review.策略模式.CashSuper">
+      <point x="0.0" y="-25.5" />
+      <point x="314.0" y="81.0" />
+      <point x="397.5" y="81.0" />
+      <point x="-24.5" y="25.5" />
+    </edge>
+    <edge source="com.design.review.策略模式.CashContext" target="com.design.review.策略模式.CashSuper">
+      <point x="56.0" y="-59.5" />
+      <point x="433.20833333333337" y="177.0" />
+      <point x="638.5" y="177.0" />
+      <point x="638.5" y="71.0" />
+      <point x="495.5" y="71.0" />
+      <point x="73.5" y="25.5" />
+    </edge>
+    <edge source="com.design.review.策略模式.CashNormal" target="com.design.review.策略模式.CashSuper">
+      <point x="0.0" y="-25.5" />
+      <point x="98.0" y="71.0" />
+      <point x="348.5" y="71.0" />
+      <point x="-73.5" y="25.5" />
+    </edge>
+    <edge source="com.design.review.策略模式.CashContext" target="com.design.review.策略模式.CashNormal">
+      <point x="-56.0" y="-59.5" />
+      <point x="321.20833333333337" y="177.0" />
+      <point x="98.0" y="177.0" />
+      <point x="0.0" y="25.5" />
+    </edge>
+    <edge source="com.design.review.策略模式.CashReturn" target="com.design.review.策略模式.CashSuper">
+      <point x="0.0" y="-25.5" />
+      <point x="530.0" y="81.0" />
+      <point x="446.5" y="81.0" />
+      <point x="24.5" y="25.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="202.0" y="91.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
