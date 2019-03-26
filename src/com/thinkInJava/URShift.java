@@ -1,4 +1,4 @@
-package com.thinkInJava.习题;
+package com.thinkInJava;
 
 /**
  * @Author anyang
@@ -6,7 +6,17 @@ package com.thinkInJava.习题;
  * @Des
  */
 public class URShift {
+
+    public String s;
+
+    public URShift() {
+        s = "dsd";
+        System.out.println("构造"+s);
+    }
+
     public static void main(String[] args) {
+        URShift u = new URShift();
+        System.out.println(u.s);
 //        int i = -1;
 //        i >>>= 10;
 //        System.out.println(i);
@@ -38,10 +48,10 @@ public class URShift {
 //                System.out.println("j" + i);
 //            }
 //        }
-        String cc = "fsdfsf";
-        switch (cc) {
-            case "fsdfsf":
-                System.out.println(1);break;
-        }
+//        String cc = "fsdfsf";
+//        switch (cc) {
+//            case "fsdfsf":
+//                System.out.println(1);break;
+//        }
     }
 }

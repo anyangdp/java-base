@@ -1,4 +1,4 @@
-package com.thinkInJava.习题.exercise2;
+package com.thinkInJava.exercise2;
 
 /**
  * @Author anyang

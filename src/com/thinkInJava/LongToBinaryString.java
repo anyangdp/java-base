@@ -1,4 +1,6 @@
-package com.thinkInJava.习题;
+package com.thinkInJava;
+
+import com.thinkInJava.exercise15.Villain;
 
 /**
  * @Author anyang
@@ -16,5 +18,7 @@ public class LongToBinaryString {
         float f4 = 1e-43f;
         System.out.println(n3);
         System.out.println(f4);
+        Villain villain = new Villain("dd");
+        System.out.println(villain);
     }
 }

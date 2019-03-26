@@ -1,4 +1,4 @@
-package com.thinkInJava.习题.exercise1.q2;
+package com.thinkInJava.exercise1.q2;
 
 /**
  * java命令运行时，不需要任何后缀，并且移除package引用
