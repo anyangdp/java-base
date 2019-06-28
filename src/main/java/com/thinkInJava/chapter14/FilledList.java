@@ -14,7 +14,7 @@ public class FilledList<T> {
         this.type = type;
     }
     public List<T> create(int nElements) {
-        List<T> result = new ArrayList<>();
+        List<T> result = new ArrayList<T>();
         try {
             for (int i = 0; i < nElements; i++)
                 result.add(type.newInstance());
@@ -25,7 +25,7 @@ public class FilledList<T> {
     }
 
     public static void main(String[] args) {
-        FilledList<CountedInteger> fl = new FilledList<>(CountedInteger.class);
+        FilledList<CountedInteger> fl = new FilledList<CountedInteger>(CountedInteger.class);
         System.out.println(fl.create(15));
     }
 }
