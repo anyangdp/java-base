@@ -9,6 +9,7 @@ package com.design.singletonPattern;
 //        getInstance() 的性能对应用程序很关键。
 //        代码实例：
 public class Singleton4 {
+    // 通过volatile关键字来确保禁止指令重排
     private volatile static Singleton4 singleton;
 
     private Singleton4() {
