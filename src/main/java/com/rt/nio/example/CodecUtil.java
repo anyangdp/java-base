@@ -1,4 +1,4 @@
-package com.rt.lang.nio.example;
+package com.rt.nio.example;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;

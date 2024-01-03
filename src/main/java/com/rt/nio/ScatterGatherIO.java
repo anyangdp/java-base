@@ -1,4 +1,4 @@
-package com.rt.lang.nio;
+package com.rt.nio;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;

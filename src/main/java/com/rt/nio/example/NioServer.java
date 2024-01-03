@@ -1,4 +1,4 @@
-package com.rt.lang.nio.example;
+package com.rt.nio.example;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -7,44 +7,30 @@ import java.nio.channels.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.concurrent.CountDownLatch;
 
 /**
  * @Author anyang
  * @CreateTime 2019/9/16
  * @Des
  */
-public class NioClient {
-    private SocketChannel clientSocketChannel;
+public class NioServer {
+    private ServerSocketChannel serverSocketChannel;
     private Selector selector;
-    private final List<String> responseQueue = new ArrayList<String>();
 
-    private CountDownLatch connected = new CountDownLatch(1);
-
-    public NioClient() throws IOException, InterruptedException {
-        // 打开 Client Socket Channel
-        clientSocketChannel = SocketChannel.open();
+    public NioServer() throws IOException {
+        // 打开 Server Socket Channel
+        serverSocketChannel = ServerSocketChannel.open();
         // 配置为非阻塞
-        clientSocketChannel.configureBlocking(false);
+        serverSocketChannel.configureBlocking(false);
+        // 绑定 Server port
+        serverSocketChannel.socket().bind(new InetSocketAddress(8000));
         // 创建 Selector
         selector = Selector.open();
         // 注册 Server Socket Channel 到 Selector
-        clientSocketChannel.register(selector, SelectionKey.OP_CONNECT);
-        // 连接服务器
-        clientSocketChannel.connect(new InetSocketAddress(8000));
-        new Thread(() -> {
-            try {
-                handleKeys();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }).start();
-        if (connected.getCount() != 0) {
-            connected.await();
-        }
-        System.out.println("Client 启动完成");
+        serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
+        System.out.println("Server 启动完成");
+        handleKeys();
     }
-
 
     @SuppressWarnings("Duplicates")
     private void handleKeys() throws IOException {
@@ -136,21 +122,8 @@ public class NioClient {
         clientSocketChannel.register(selector, SelectionKey.OP_READ, responseQueue);
     }
 
-    public synchronized void send(String content) throws ClosedChannelException {
-        // 添加到响应队列
-        responseQueue.add(content);
-        // 打印数据
-        System.out.println("写入数据：" + content);
-        // 注册 Client Socket Channel 到 Selector
-        clientSocketChannel.register(selector, SelectionKey.OP_WRITE, responseQueue);
-        selector.wakeup();
+    public static void main(String[] args) throws IOException {
+        NioServer server = new NioServer();
     }
 
-    public static void main(String[] args) throws IOException, InterruptedException {
-        NioClient nioClient = new NioClient();
-        for (int i = 0; i < 30; i++) {
-            nioClient.send("nihao: " + i);
-            Thread.sleep(1000L);
-        }
-    }
 }
